@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "akshare-proxy-patch"  # 包名，需在 PyPI 唯一
+version = "0.1.0"
+authors = [
+  { name="cheapproxy", email="emezxyj1@gmail.com" },
+]
+description = "针对 AkShare 的底层补丁，自动为东财等接口注入代理认证头，从而避免 `stock_zh_a_spot_em` 等方法报错。"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "akshare",
+    "requests",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/cheapproxy/akshare-proxy-patch"
