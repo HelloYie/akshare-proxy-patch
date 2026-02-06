@@ -4,14 +4,20 @@
 ## 安装
 
 ```
-pip install akshare-proxy-patch -i https://mirrors.aliyun.com/pypi/simple
+pip install --upgrade akshare-proxy-patch
 ```
 
 ## 使用
 
 1. 访问 https://cheapproxy.net 联系客服，获取授权码 `AUTH_TOKEN`
 
-2. 在使用 akshare 文件顶部添加下面的内容 
+2. 将 akshare 升级到最新
+
+```
+pip install --upgrade akshare
+```
+
+3. 在使用 akshare 文件顶部添加下面的内容 
 ```
 import akshare_proxy_patch
 
