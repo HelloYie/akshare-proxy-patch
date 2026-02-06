@@ -16,4 +16,9 @@ pip install akshare-proxy-patch -i https://mirrors.aliyun.com/pypi/simple
 import akshare_proxy_patch
 
 akshare_proxy_patch.install_patch("AUTH_TOKEN")
+
+
+# import akshare as ak
+# df = ak.stock_zh_a_spot_em()
+# 你的其他代码......
 ```
