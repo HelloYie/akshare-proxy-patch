@@ -9,7 +9,7 @@ def install_patch(auth_ip, auth_token):
     def patched_send(self, request, **kwargs):
         auth_url = f"http://{auth_ip}:47001/api/akshare-auth"
         url = request.url
-        is_hook = ("82.push2.eastmoney.com" in url) or ("push2his.eastmoney.com" in url)
+        is_hook = ("push2.eastmoney.com" in url) or ("push2his.eastmoney.com" in url)
         for i in range(60):
             try:
                 if not is_hook:
