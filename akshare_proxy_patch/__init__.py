@@ -14,7 +14,7 @@ def install_patch(auth_token):
             try:
                 with requests.Session() as s:
                     HTTPAdapter.send = original_send
-                    auth_url = "https://akshare.cheapproxy.net/api/akshare-auth"
+                    auth_url = "http://akshare.cheapproxy.net/api/akshare-auth"
                     auth_res = s.get(
                         auth_url, params={"token": auth_token}, timeout=5
                     ).json()
@@ -28,10 +28,10 @@ def install_patch(auth_token):
                 request.headers["Cookie"] = cookie_str
                 proxy = auth_res["proxy"]
                 kwargs["proxies"] = {"http": proxy, "https": proxy}
-                kwargs["timeout"] = kwargs.get("timeout") or 15
+                kwargs["timeout"] = 10
                 return original_send(self, request, **kwargs)
             except Exception as e:
-                time.sleep(0.5)
+                time.sleep(1)
                 HTTPAdapter.send = patched_send
 
         return original_send(self, request, **kwargs)
