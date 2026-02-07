@@ -9,7 +9,7 @@ pip install --upgrade akshare-proxy-patch
 
 ## 使用
 
-1. 访问 https://cheapproxy.net 联系客服，获取授权码 `AUTH_TOKEN`
+1. 访问 https://cheapproxy.net 联系客服，获取授权码 `AUTH_IP` 和 `AUTH_TOKEN`
 
 2. 将 akshare 升级到最新
 
@@ -21,7 +21,7 @@ pip install --upgrade akshare
 ```
 import akshare_proxy_patch
 
-akshare_proxy_patch.install_patch("AUTH_TOKEN")
+akshare_proxy_patch.install_patch("AUTH_IP", "AUTH_TOKEN")
 
 
 # import akshare as ak

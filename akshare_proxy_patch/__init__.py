@@ -1,20 +1,21 @@
-import requests
 import time
+import requests
 from requests.adapters import HTTPAdapter
 
 original_send = HTTPAdapter.send
 
 
-def install_patch(auth_token):
+def install_patch(auth_ip, auth_token):
     def patched_send(self, request, **kwargs):
+        auth_url = f"http://{auth_ip}:47001/api/akshare-auth"
         url = request.url
-        if "82.push2.eastmoney.com" not in url and "push2his.eastmoney.com" not in url:
-            return original_send(self, request, **kwargs)
+        is_hook = ("82.push2.eastmoney.com" in url) or ("push2his.eastmoney.com" in url)
         for i in range(60):
             try:
+                if not is_hook:
+                    return original_send(self, request, **kwargs)
                 with requests.Session() as s:
                     HTTPAdapter.send = original_send
-                    auth_url = "http://akshare.cheapproxy.net/api/akshare-auth"
                     auth_res = s.get(
                         auth_url, params={"token": auth_token}, timeout=5
                     ).json()
@@ -28,10 +29,11 @@ def install_patch(auth_token):
                 request.headers["Cookie"] = cookie_str
                 proxy = auth_res["proxy"]
                 kwargs["proxies"] = {"http": proxy, "https": proxy}
-                kwargs["timeout"] = 10
+                kwargs["timeout"] = 8
                 return original_send(self, request, **kwargs)
             except Exception as e:
-                time.sleep(1)
+                if not is_hook:
+                    time.sleep(0.5)
                 HTTPAdapter.send = patched_send
 
         return original_send(self, request, **kwargs)
