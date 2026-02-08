@@ -19,8 +19,9 @@ def install_patch(auth_ip, auth_token):
                     auth_res = s.get(
                         auth_url, params={"token": auth_token}, timeout=5
                     ).json()
-                    if not auth_res["ua"]:
-                        print("请先登录 https://cheapproxy.net 联系客服获取授权码")
+                    error_msg = auth_res.get("error_msg", "")
+                    if error_msg:
+                        print(error_msg)
                         return None
 
                     HTTPAdapter.send = patched_send

@@ -28,3 +28,7 @@ akshare_proxy_patch.install_patch("AUTH_IP", "AUTH_TOKEN")
 # df = ak.stock_zh_a_spot_em()
 # 你的其他代码......
 ```
+
+# 使用问题交流群
+
+![E8B03n88UCIUeoQ9p4Z4wx6B9Xop8kR2.webp](https://cdn.nodeimage.com/i/E8B03n88UCIUeoQ9p4Z4wx6B9Xop8kR2.webp)
