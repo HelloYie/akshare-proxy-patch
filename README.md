@@ -34,6 +34,9 @@ akshare_proxy_patch.install_patch("AUTH_IP", "AUTH_TOKEN")
 - push2.eastmoney.com
 - push2his.eastmoney.com
 
+## TODO 
+- 多线程情况下容易出现问题，需暂时不使用多线程或减少线程数
+
 ## 使用问题交流群
 
 ![8jmzvNOjKWFzwNUDW0Xiytcpfr50uMr5.webp](https://cdn.nodeimage.com/i/8jmzvNOjKWFzwNUDW0Xiytcpfr50uMr5.webp)
