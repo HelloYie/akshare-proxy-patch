@@ -11,7 +11,7 @@ pip install upgrade akshare
 
 2. 安装最新版本的 `akshare-proxy-patch`
 ```
-pip install akshare-proxy-patch==0.2.3
+pip install akshare-proxy-patch==0.2.4
 ```
 
 最好默认用国外源，国内源有时不是最新的

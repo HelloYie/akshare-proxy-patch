@@ -3,7 +3,7 @@ import threading
 import requests
 from requests.adapters import HTTPAdapter
 
-__version__ = "0.2.3"
+__version__ = "0.2.4"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
 _original_request = requests.Session.request
 _auth_session = requests.Session()
@@ -85,8 +85,7 @@ def install_patch(auth_ip, auth_token):
                 "https": auth_res["proxy"],
             }
 
-            if "timeout" not in kwargs:
-                kwargs["timeout"] = 8
+            kwargs["timeout"] = 8
 
             try:
                 # 调用原始 request 方法
