@@ -18,7 +18,7 @@ pip install akshare-proxy-patch==0.2.4
 
 ## 使用
 
-1. 登录 (cheapproxy)[https://cheapproxy.net]，获取授权码 `AUTH_IP` 和 `AUTH_TOKEN`
+1. 注册 [cheapproxy](https://cheapproxy.net) 获取授权码 `AUTH_IP` 和 `AUTH_TOKEN`
 
 2. 在使用 akshare 文件顶部添加下面的内容
 ```
