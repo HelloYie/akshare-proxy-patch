@@ -3,21 +3,24 @@
 
 ## 安装
 
+1. 将官方 `akshare` 升级到最新
+
 ```
-pip install --upgrade akshare-proxy-patch
+pip install upgrade akshare
 ```
+
+2. 安装最新版本的 `akshare-proxy-patch`
+```
+pip install akshare-proxy-patch==0.2.3
+```
+
+最好默认用国外源，国内源有时不是最新的
 
 ## 使用
 
 1. 登录 https://cheapproxy.net，获取授权码 `AUTH_IP` 和 `AUTH_TOKEN`
 
-2. 将 akshare 升级到最新
-
-```
-pip install --upgrade akshare
-```
-
-3. 在使用 akshare 文件顶部添加下面的内容 
+2. 在使用 akshare 文件顶部添加下面的内容
 ```
 # 文件顶部添加
 import akshare_proxy_patch
@@ -34,9 +37,8 @@ akshare_proxy_patch.install_patch("AUTH_IP", "AUTH_TOKEN")
 - push2.eastmoney.com
 - push2his.eastmoney.com
 
-## TODO 
-- 多线程情况下容易出现问题，需暂时不使用多线程或减少线程数
-
 ## 使用问题交流群
+
+如遇到部分接口报错，可进群交流：
 
 ![8jmzvNOjKWFzwNUDW0Xiytcpfr50uMr5.webp](https://cdn.nodeimage.com/i/8jmzvNOjKWFzwNUDW0Xiytcpfr50uMr5.webp)
