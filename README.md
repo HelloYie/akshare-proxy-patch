@@ -1,5 +1,5 @@
 # AkShare Proxy Patch
-针对 AkShare 和 efinance 的底层补丁，自动为东财接口注入代理认证头，从而避免AKShare: `stock_zh_a_spot_em`、get_realtime_quotes: `get_realtime_quotes` 等东财 eastmoney 接口报错问题。
+针对 AkShare 和 efinance 的底层补丁，自动为东财接口注入代理认证头，从而避免`akshare: stock_zh_a_spot_em`、`efinance: get_realtime_quotes` 等东财 eastmoney 接口报错问题。
 
 ## 安装
 
