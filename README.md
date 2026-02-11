@@ -15,7 +15,7 @@ pip install --upgrade efinance
 
 2. 安装最新版本的 `akshare-proxy-patch`
 ```
-pip install akshare-proxy-patch==0.2.6
+pip install akshare-proxy-patch==0.2.7
 ```
 
 最好默认用国外源，国内源不是最新的，可能没更新

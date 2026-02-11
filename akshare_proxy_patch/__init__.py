@@ -3,7 +3,7 @@ import threading
 import requests
 from requests.adapters import HTTPAdapter
 
-__version__ = "0.2.6"
+__version__ = "0.2.7"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
 _original_request = requests.Session.request
 _auth_session = requests.Session()
@@ -93,12 +93,10 @@ def install_patch(auth_ip, auth_token, retry=30):
                 if resp.ok:
                     return resp
 
-                # 如果遇到 403 等可能是代理失效
-                if resp.status_code == 403:
-                    with _cache.lock:
-                        _cache.expire_at = 0
+                with _cache.lock:
+                    _cache.expire_at = 0
+                time.sleep(0.1)
             except Exception:
-                # 网络异常直接使缓存失效，强制下一个请求换 IP
                 with _cache.lock:
                     _cache.expire_at = 0
                 time.sleep(0.1)
