@@ -7,10 +7,10 @@
 
 ```
 # akshare 用户
-pip install upgrade akshare
+pip install --upgrade akshare
 
 # efinance 用户
-pip install upgrade efinance
+pip install --upgrade efinance
 ```
 
 2. 安装最新版本的 `akshare-proxy-patch`
