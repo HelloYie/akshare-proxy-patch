@@ -15,10 +15,10 @@ pip install upgrade efinance
 
 2. 安装最新版本的 `akshare-proxy-patch`
 ```
-pip install akshare-proxy-patch==0.2.5
+pip install akshare-proxy-patch==0.2.6
 ```
 
-最好默认用国外源，国内源不是最新的，版本必须 >=0.2.4
+最好默认用国外源，国内源不是最新的，可能没更新
 
 ## 使用方法
 
@@ -28,8 +28,9 @@ pip install akshare-proxy-patch==0.2.5
 import akshare_proxy_patch
 
 # 参数1: AUTH_IP
-# 参数2: AUTH_TOKEN
-akshare_proxy_patch.install_patch("101.201.173.125", "")
+# 参数2: AUTH_TOKEN，默认为空
+# 参数3: retry 重试次数，默认30
+akshare_proxy_patch.install_patch("101.201.173.125", "", 30)
 
 # 你的正常业务代码不变
 

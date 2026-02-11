@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "akshare-proxy-patch"  # 包名，需在 PyPI 唯一
-version = "0.2.5"
+version = "0.2.6"
 authors = [
   { name="cheapproxy", email="emezxyj1@gmail.com" },
 ]

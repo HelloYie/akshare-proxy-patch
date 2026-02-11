@@ -3,7 +3,7 @@ import threading
 import requests
 from requests.adapters import HTTPAdapter
 
-__version__ = "0.2.5"
+__version__ = "0.2.6"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
 _original_request = requests.Session.request
 _auth_session = requests.Session()
@@ -49,7 +49,7 @@ def get_auth_config_with_cache(auth_url, auth_token):
         return _cache.data
 
 
-def install_patch(auth_ip, auth_token):
+def install_patch(auth_ip, auth_token, retry=30):
     def patched_request(self, method, url, **kwargs):
         # 排除非目标域名
         is_target = any(
@@ -67,7 +67,7 @@ def install_patch(auth_ip, auth_token):
         auth_url = f"http://{auth_ip}:47001/api/akshare-auth"
 
         # 重试逻辑
-        for _ in range(10):
+        for _ in range(retry):
             auth_res = get_auth_config_with_cache(auth_url, auth_token)
             if not auth_res:
                 time.sleep(0.5)
