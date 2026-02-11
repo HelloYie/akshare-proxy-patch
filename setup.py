@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="akshare-proxy-patch",  # 包名，用户 pip install 时的名称
-    version="0.2.4",  # 版本号
+    version="0.2.5",
     author="cheapproxy.net",
     author_email="emezxyj1@gmail.com",
-    description="AkShare 报错全局Hook",
+    description="AkShare 和 efinance 报错全局Hook",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/helloyie/akshare-proxy-patch",  # 项目主页

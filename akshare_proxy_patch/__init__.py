@@ -3,7 +3,7 @@ import threading
 import requests
 from requests.adapters import HTTPAdapter
 
-__version__ = "0.2.4"
+__version__ = "0.2.5"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
 _original_request = requests.Session.request
 _auth_session = requests.Session()
