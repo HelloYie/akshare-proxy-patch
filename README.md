@@ -52,4 +52,4 @@ ef.stock.get_realtime_quotes()
 
 如遇到部分接口报错，可进群交流：
 
-![8jmzvNOjKWFzwNUDW0Xiytcpfr50uMr5.webp](https://cdn.nodeimage.com/i/8jmzvNOjKWFzwNUDW0Xiytcpfr50uMr5.webp)
+![6bW2Mh4iiiPxjksIUrWXpBOTQX95ZkVR.webp](https://cdn.nodeimage.com/i/6bW2Mh4iiiPxjksIUrWXpBOTQX95ZkVR.webp)
