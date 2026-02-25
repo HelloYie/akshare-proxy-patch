@@ -20,33 +20,38 @@ pip install --upgrade efinance
 pip install akshare-proxy-patch==0.2.7
 ```
 
-最好默认用国外源，国内源不是最新的，可能没更新
-
 ## 使用方法
 
-1. `akshare` 和 `efinance` 使用方式一致，在文件顶部添加如下代码
+`akshare` 和 `efinance` 使用方式一致，在文件顶部添加2行代码即可，无需寻找代理IP和其他额外操作。
 
 ```
-# 文件顶部添加
+# 文件顶部添加2行代码
 import akshare_proxy_patch
 
-# 参数1: AUTH_IP
-# 参数2: AUTH_TOKEN，默认为空
-# 参数3: retry 重试次数，默认30
 akshare_proxy_patch.install_patch("101.201.173.125", "", 30)
 
-# 你的正常业务代码保持不变
 
-# 假如使用akshare
+# 后续你的正常业务代码保持不变
+
+# 假如你使用akshare
 import akshare as ak
 df = ak.stock_zh_a_spot_em()
 
-# 假如使用 efinance
+# 假如你使用 efinance
 import efinance as ef
 ef.stock.get_realtime_quotes()
 ```
 
-## 目前Hook的接口域名清单
+## install_patch 参数说明
+
+- 参数1：网关
+  - 默认为 `101.201.173.125` 不可修改
+- 参数2：AUTH_TOKEN
+  - 默认为空，每天可免费使用一定次数。如有更多需求，可[点击此处注册](https://cheapproxy.net/)并申请 正式的`AUTH_TOKEN`。
+- 参数3：重试次数
+  - 默认为30，建议保持不变
+
+## 目前 Hook 的接口域名清单
 
 - fund.eastmoney.com
 - push2.eastmoney.com
@@ -54,6 +59,6 @@ ef.stock.get_realtime_quotes()
 
 ## 使用问题交流群
 
-如遇到部分接口报错，可进群交流：
+如遇到部分接口报错，或有什么意见或建议，可进群交流：
 
 ![cBdTtCUyUMu90DljeIpzLFD5IFqPmW9y.webp](https://cdn.nodeimage.com/i/cBdTtCUyUMu90DljeIpzLFD5IFqPmW9y.webp)
