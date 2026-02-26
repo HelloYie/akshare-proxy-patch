@@ -17,7 +17,7 @@ pip install akshare-proxy-patch==0.2.7
 `akshare` 和 `efinance` 使用方式一致，在文件顶部添加2行代码即可，无需其他额外操作。
 
 ```
-# 文件顶部添加2行代码
+# python 文件顶部添加2行代码
 import akshare_proxy_patch
 
 akshare_proxy_patch.install_patch("101.201.173.125", "", 30)
@@ -25,7 +25,7 @@ akshare_proxy_patch.install_patch("101.201.173.125", "", 30)
 
 # 后续你的正常业务代码保持不变
 
-# 假如你使用akshare
+# 假如你使用 akshare
 import akshare as ak
 df = ak.stock_zh_a_spot_em()
 
