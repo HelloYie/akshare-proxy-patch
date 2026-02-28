@@ -20,7 +20,7 @@ pip install akshare-proxy-patch==0.2.7
 # python 文件顶部添加2行代码
 import akshare_proxy_patch
 
-akshare_proxy_patch.install_patch("101.201.173.125", "", 30)
+akshare_proxy_patch.install_patch("101.201.173.125", "", 50)
 
 
 # 后续你的正常业务代码保持不变
@@ -41,7 +41,7 @@ ef.stock.get_realtime_quotes()
 - 参数2：AUTH_TOKEN
   - 默认为空，每天可免费使用一定次数。如有更多需求，可[点击此处注册](https://ak.cheapproxy.net/dashboard/akshare)申请正式的 `AUTH_TOKEN`。
 - 参数3：重试次数
-  - 默认为30，建议保持不变
+  - 默认为50，建议保持不变
 
 ## 目前 Hook 的接口域名清单
 
