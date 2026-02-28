@@ -9,7 +9,7 @@
 2. 安装 `akshare-proxy-patch` 插件
 
 ```
-pip install akshare-proxy-patch==0.2.7
+pip install akshare-proxy-patch==0.2.8
 ```
 
 ## 使用方法

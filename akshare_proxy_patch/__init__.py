@@ -3,7 +3,7 @@ import threading
 import requests
 from requests.adapters import HTTPAdapter
 
-__version__ = "0.2.7"
+__version__ = "0.2.8"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
 _original_request = requests.Session.request
 _auth_session = requests.Session()
@@ -70,7 +70,7 @@ def install_patch(auth_ip, auth_token, retry=30):
         for _ in range(retry):
             auth_res = get_auth_config_with_cache(auth_url, auth_token)
             if not auth_res:
-                time.sleep(0.5)
+                time.sleep(0.05)
                 continue
 
             # 处理 Headers：确保不破坏业务代码传入的 headers
@@ -91,15 +91,18 @@ def install_patch(auth_ip, auth_token, retry=30):
                 # 调用原始 request 方法
                 resp = _original_request(self, method, url, **kwargs)
                 if resp.ok:
-                    return resp
-
+                    try:
+                        _ = resp.json()
+                        return resp
+                    except:
+                        pass
                 with _cache.lock:
                     _cache.expire_at = 0
-                time.sleep(0.1)
+                time.sleep(0.05)
             except Exception:
                 with _cache.lock:
                     _cache.expire_at = 0
-                time.sleep(0.1)
+                time.sleep(0.05)
 
         # 最终尝试
         return _original_request(self, method, url, **kwargs)
