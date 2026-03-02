@@ -38,8 +38,8 @@ ef.stock.get_realtime_quotes()
 
 - 参数1：网关
   - 默认为 `101.201.173.125` 不可修改
-- 参数2：AUTH_TOKEN
-  - 默认为空，每天可免费使用一定次数。如有更多需求，可[点击此处注册](https://ak.cheapproxy.net/dashboard/akshare)申请正式的 `AUTH_TOKEN`。
+- 参数2：TOKEN
+  - 默认为空，每天可免费使用一定次数。如有更多需求，可[点击此处注册](https://ak.cheapproxy.net/dashboard/akshare)申请正式的 `TOKEN`。
 - 参数3：重试次数
   - 默认为30，建议保持不变
 
