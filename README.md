@@ -43,18 +43,45 @@ ef.stock.get_realtime_quotes()
 - 参数3：重试次数
   - 默认为30，建议保持不变
 
+## 如何在 aktools 内集成插件？
+
+需要新建一个 `aktools.py` 替换官方的启动方式：
+
+```
+# 添加插件
+import akshare_proxy_patch
+
+akshare_proxy_patch.install_patch("101.201.173.125", "", 30)
+
+# 启动 aktools
+import uvicorn
+
+if __name__ == '__main__':
+    uvicorn.run(
+        "aktools.main:app",
+        host="0.0.0.0",
+        port=8080,
+        reload=False,
+        # 根据 CPU 核心数调整，推荐 2×核心数 + 1
+        workers=4,
+        log_level="info"
+    )
+```
+
+然后执行 `python aktools.py` 即可启动并正常使用 `aktools`。
+
+## 我是手动爬取的东财接口，能集成插件吗？
+
+能。如果您没有使用 `akshare` 或 `efinance`，而是手动调用的东财接口，只要代码是使用的 `requests`，插件都能 hook 住请求，正常工作。
+
 ## 目前 Hook 的接口域名清单
 
 - fund.eastmoney.com
 - push2.eastmoney.com
 - push2his.eastmoney.com
 
-## 我是手动爬取的东财接口，能用插件吗？
-
-能。如果您没有使用 `akshare` 或 `efinance`，而是手动调用的东财接口，只要代码是使用的 `requests`，插件都能 hook 住请求，正常工作。
-
 ## 使用问题交流群
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
-![7sEblPiT7tEdCPrA3nEyekVYxsMZDDgy.webp](https://cdn.nodeimage.com/i/7sEblPiT7tEdCPrA3nEyekVYxsMZDDgy.webp)
+![7sEblPiT7tEdCPrA3nEyekVYxsMZDDgy.webp](https://picui.ogmua.cn/s1/2026/03/03/69a64a45bbda0.webp)
