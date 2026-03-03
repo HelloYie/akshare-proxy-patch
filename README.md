@@ -45,7 +45,7 @@ ef.stock.get_realtime_quotes()
 
 ## 如何在 aktools 内集成插件？
 
-需要新建一个 `aktools.py` 替换官方的启动方式：
+需要新建一个 `akt.py` 替换官方的启动方式：
 
 ```
 # 添加插件
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     )
 ```
 
-然后执行 `python aktools.py` 即可启动并正常使用 `aktools`。
+然后执行 `python akt.py` 即可启动并正常使用 `aktools`。
 
 ## 我是手动爬取的东财接口，能集成插件吗？
 
