@@ -1,6 +1,6 @@
 # AkShare Proxy Patch
 
-针对 `akshare` 和 `efinance` 的插件补丁，自动为东财接口注入请求头，从而避免`stock_zh_a_spot_em`、`get_realtime_quotes` 等东财 eastmoney 接口报错问题。
+针对 `akshare` 和 `efinance` 的插件补丁，自动为接口注入请求头，从而避免`stock_zh_a_spot_em`、`get_realtime_quotes` 等接口报错问题。
 
 ## 安装
 
@@ -70,15 +70,9 @@ if __name__ == '__main__':
 
 然后执行 `python akt.py` 即可启动并正常使用 `aktools`。
 
-## 我是手动爬取的东财接口，能集成插件吗？
+## 我是手动爬取的接口，能集成插件吗？
 
-能。如果您没有使用 `akshare` 或 `efinance`，而是手动调用的东财接口，只要代码是使用的 `requests`，插件都能 hook 住请求，正常工作。
-
-## 目前 Hook 的接口域名清单
-
-- fund.eastmoney.com
-- push2.eastmoney.com
-- push2his.eastmoney.com
+能。如果您没有使用 `akshare` 或 `efinance`，而是手动调用的接口，只要代码是使用的 `requests`，插件都能 hook 住请求，正常工作。
 
 ## 使用问题交流群
 
