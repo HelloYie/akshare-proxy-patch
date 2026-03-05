@@ -1,9 +1,8 @@
 import time
 import threading
 import requests
-from requests.adapters import HTTPAdapter
 
-__version__ = "0.2.8"
+__version__ = "0.2.9"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
 _original_request = requests.Session.request
 _auth_session = requests.Session()
@@ -14,7 +13,7 @@ class AuthCache:
         self.data = None
         self.expire_at = 0
         self.lock = threading.Lock()
-        self.ttl = 20
+        self.ttl = 28
 
 
 _cache = AuthCache()
@@ -35,7 +34,7 @@ def get_auth_config_with_cache(auth_url, auth_token):
             resp = _auth_session.get(
                 auth_url,
                 params={"token": auth_token, "version": __version__},
-                timeout=5,
+                timeout=(1.5, 3),
             )
             data = resp.json()
             if data.get("ua"):
@@ -85,7 +84,7 @@ def install_patch(auth_ip, auth_token, retry=30):
                 "https": auth_res["proxy"],
             }
 
-            kwargs["timeout"] = 8
+            kwargs["timeout"] = (2.5, 5)
 
             try:
                 # 调用原始 request 方法
