@@ -21,4 +21,4 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/cheapproxy/akshare-proxy-patch"
+"Homepage" = "https://github.com/helloyie/akshare-proxy-patch"
