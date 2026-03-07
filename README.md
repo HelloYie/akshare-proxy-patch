@@ -12,8 +12,6 @@
 pip install akshare-proxy-patch==0.2.9
 ```
 
-如果国内源还没更新可以用 `pip install akshare-proxy-patch==0.2.9 -i https://pypi.org/simple`
-
 ## 使用方法
 
 `akshare` 和 `efinance` 使用方式一致，在文件顶部添加2行代码即可，无需其他额外操作。
@@ -80,4 +78,4 @@ if __name__ == '__main__':
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
-![7sEblPiT7tEdCPrA3nEyekVYxsMZDDgy.webp](https://picui.ogmua.cn/s1/2026/03/03/69a64a45bbda0.webp)
+![wPcUf9H0jIdRXSWKhk8BZ24wbDVnufQe.webp](https://cdn.nodeimage.com/i/wPcUf9H0jIdRXSWKhk8BZ24wbDVnufQe.webp)
