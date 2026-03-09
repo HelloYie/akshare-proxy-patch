@@ -61,8 +61,9 @@ def install_patch(auth_ip, auth_token, retry=30):
             ]
         )
         is_js = urlparse(url or "").path.lower().endswith(".js")
+        is_html = urlparse(url or "").path.lower().endswith(".html")
 
-        if not is_target or is_js:
+        if not is_target or is_js or is_html:
             return _original_request(self, method, url, **kwargs)
 
         auth_url = f"http://{auth_ip}:47001/api/akshare-auth"
