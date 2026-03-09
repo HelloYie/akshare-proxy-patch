@@ -1,6 +1,6 @@
 # AkShare Proxy Patch
 
-针对 `akshare` 和 `efinance` 的插件补丁，自动为接口注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等接口报错问题。
+针对 `akshare` 和 `efinance` 的插件补丁，自动为接口注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等东财接口报错问题。
 
 ## 安装
 
