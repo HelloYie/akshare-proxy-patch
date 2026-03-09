@@ -1,6 +1,7 @@
 import time
 import threading
 import requests
+from urllib.parse import urlparse
 
 __version__ = "0.2.9"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
@@ -59,8 +60,9 @@ def install_patch(auth_ip, auth_token, retry=30):
                 "push2his.eastmoney.com",
             ]
         )
+        is_js = urlparse(url or "").path.lower().endswith(".js")
 
-        if not is_target:
+        if not is_target or is_js:
             return _original_request(self, method, url, **kwargs)
 
         auth_url = f"http://{auth_ip}:47001/api/akshare-auth"
