@@ -9,8 +9,10 @@
 2. 安装 `akshare-proxy-patch` 插件
 
 ```
-pip install akshare-proxy-patch==0.2.11
+pip install akshare-proxy-patch==0.2.12
 ```
+
+如果国内源暂未更新可以加上 `-i https://pypi.org/simple` 使用官方源
 
 ## 使用方法
 

@@ -3,7 +3,7 @@ import threading
 import requests
 from urllib.parse import urlparse
 
-__version__ = "0.2.10"
+__version__ = "0.2.12"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
 _original_request = requests.Session.request
 _auth_session = requests.Session()
@@ -58,6 +58,7 @@ def install_patch(auth_ip, auth_token, retry=30):
                 "fund.eastmoney.com",
                 "push2.eastmoney.com",
                 "push2his.eastmoney.com",
+                "emweb.securities.eastmoney.com",
             ]
         )
         is_js = urlparse(url or "").path.lower().endswith(".js")
@@ -94,6 +95,9 @@ def install_patch(auth_ip, auth_token, retry=30):
                 resp = _original_request(self, method, url, **kwargs)
                 if resp.ok:
                     try:
+                        content_type = resp.headers.get("Content-Type").lower()
+                        if "json" not in content_type:
+                            return resp
                         _ = resp.json()
                         return resp
                     except:
