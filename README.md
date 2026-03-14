@@ -53,8 +53,8 @@ ef.stock.get_realtime_quotes()
 - 参数3：重试次数
   - 默认为30，建议保持不变
 - 参数4：需要hook的域名列表
-  - 接口URL包含列表内任意一条域名都会走代理，可以点击函数查看源码根据封控情况调整以降低积分消耗
-  - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains=["https://82.push2.eastmoney.com/api/qt/clist/get"]` 即可
+  - 接口URL包含列表内任意一条域名都会走代理。可以点击函数查看源码，根据封控情况调整域名以降低积分消耗。
+  - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains=["https://82.push2.eastmoney.com/api/qt/clist/get"]` 即可。
 
 ## 如何在 aktools 内集成插件？
 
@@ -93,9 +93,10 @@ if __name__ == '__main__':
 
 然后执行 `python akt.py` 即可启动并正常使用 `aktools`。
 
-## 我是手动爬取的接口，能集成插件吗？
+## 我是没使用 akshare 或 efinance，能集成插件吗？
 
-能。如果您没有使用 `akshare` 或 `efinance`，而是手动调用的接口，只要代码是使用的 `requests`，插件都能 hook 住请求，正常工作。
+- 如果使用 python 语言的 `requests` 请求东财接口，插件能自动 hook 住请求，正常工作。
+- 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=&version=0.2.13) 自行实现。
 
 ## 使用问题交流群
 
