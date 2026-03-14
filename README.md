@@ -9,18 +9,28 @@
 2. 安装 `akshare-proxy-patch` 插件
 
 ```
-pip install akshare-proxy-patch==0.2.12
+pip install akshare-proxy-patch==0.2.13
 ```
 
 ## 使用方法
 
-`akshare` 和 `efinance` 使用方式一致，在文件顶部添加2行代码即可，无需其他额外操作。
+`akshare` 和 `efinance` 使用方式一致，在文件顶部添加如下代码即可，无需其他额外操作。
 
 ```
-# python 文件顶部添加2行代码
+# python 文件顶部添加如下代码
 import akshare_proxy_patch
 
-akshare_proxy_patch.install_patch("101.201.173.125", "", 30)
+akshare_proxy_patch.install_patch(
+    "101.201.173.125",
+    auth_token="",
+    retry=30,
+    hook_domains=[
+      "fund.eastmoney.com",
+      "push2.eastmoney.com",
+      "push2his.eastmoney.com",
+      "emweb.securities.eastmoney.com",
+    ],
+)
 
 
 # 后续你的正常业务代码保持不变
@@ -42,6 +52,9 @@ ef.stock.get_realtime_quotes()
   - 默认为空，每天可免费使用一定次数。如有更多需求，可[点击此处注册](https://ak.cheapproxy.net/dashboard/akshare)申请正式的 `TOKEN`。
 - 参数3：重试次数
   - 默认为30，建议保持不变
+- 参数4：需要hook的域名列表
+  - 接口URL包含列表内任意一条域名都会走代理，可以点击函数查看源码根据封控情况调整以降低积分消耗
+  - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains=["https://82.push2.eastmoney.com/api/qt/clist/get"]` 即可
 
 ## 如何在 aktools 内集成插件？
 
@@ -51,7 +64,17 @@ ef.stock.get_realtime_quotes()
 # 添加插件
 import akshare_proxy_patch
 
-akshare_proxy_patch.install_patch("101.201.173.125", "", 30)
+akshare_proxy_patch.install_patch(
+    "101.201.173.125",
+    auth_token="",
+    retry=30,
+    hook_domains=[
+      "fund.eastmoney.com",
+      "push2.eastmoney.com",
+      "push2his.eastmoney.com",
+      "emweb.securities.eastmoney.com",
+    ],
+)
 
 # 启动 aktools
 import uvicorn

@@ -3,7 +3,7 @@ import threading
 import requests
 from urllib.parse import urlparse
 
-__version__ = "0.2.12"
+__version__ = "0.2.13"
 # 备份 Session 的原始 request 方法，这是所有 requests.get/post 的最终入口
 _original_request = requests.Session.request
 _auth_session = requests.Session()
@@ -49,18 +49,19 @@ def get_auth_config_with_cache(auth_url, auth_token):
         return _cache.data
 
 
-def install_patch(auth_ip, auth_token, retry=30):
+# 如果访问的 URL 包含以下域名，走代理
+default_hook_domains = [
+    "fund.eastmoney.com",
+    "push2.eastmoney.com",
+    "push2his.eastmoney.com",
+    "emweb.securities.eastmoney.com",
+]
+
+
+def install_patch(auth_ip, auth_token="", retry=30, hook_domains=default_hook_domains):
     def patched_request(self, method, url, **kwargs):
         # 排除非目标域名
-        is_target = any(
-            d in (url or "")
-            for d in [
-                "fund.eastmoney.com",
-                "push2.eastmoney.com",
-                "push2his.eastmoney.com",
-                "emweb.securities.eastmoney.com",
-            ]
-        )
+        is_target = any(d in (url or "") for d in hook_domains)
         is_js = urlparse(url or "").path.lower().endswith(".js")
         is_html = urlparse(url or "").path.lower().endswith(".html")
 
