@@ -22,8 +22,10 @@ import akshare_proxy_patch
 
 akshare_proxy_patch.install_patch(
     "101.201.173.125",
+    # 免费版为空，付费版填入具体TOKEN
     auth_token="",
     retry=30,
+    # 封控的域名列表，可动态调整
     hook_domains=[
       "fund.eastmoney.com",
       "push2.eastmoney.com",
@@ -52,9 +54,9 @@ ef.stock.get_realtime_quotes()
   - 默认为空，每天可免费使用一定次数。如有更多需求，可[点击此处注册](https://ak.cheapproxy.net/dashboard/akshare)申请正式的 `TOKEN`。
 - 参数3：重试次数
   - 默认为30，建议保持不变
-- 参数4：需要hook的域名列表
-  - 接口URL包含列表内任意一条域名都会走代理。可以点击函数查看源码，根据封控情况调整域名以降低积分消耗。
-  - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains=["https://82.push2.eastmoney.com/api/qt/clist/get"]` 即可。
+- 参数4：封控的域名列表
+  - 可点击 `ak` 或 `ef` 函数查看接口源码对应的域名，根据封控情况调整域名可以降低积分消耗。
+  - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains` 设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]` 即可。
 
 ## 如何在 aktools 内集成插件？
 
@@ -66,8 +68,10 @@ import akshare_proxy_patch
 
 akshare_proxy_patch.install_patch(
     "101.201.173.125",
+    # 免费版为空，付费版填入具体TOKEN
     auth_token="",
     retry=30,
+    # 封控的域名列表，可动态调整
     hook_domains=[
       "fund.eastmoney.com",
       "push2.eastmoney.com",
