@@ -1,10 +1,10 @@
 # AkShare Proxy Patch
 
-针对 `akshare` 和 `efinance` 的插件补丁，自动为接口注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等东财接口报错问题。
+针对 `akshare` 和 `efinance` 的🐒插件补丁，自动为接口注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等东财接口报错问题。
 
 ## 安装
 
-1. 安装好官方 [akshare](https://github.com/akfamily/akshare) 或 [efinance](https://github.com/Micro-sheep/efinance) 包
+1. 安装并升级官方 [akshare](https://github.com/akfamily/akshare) 或 [efinance](https://github.com/Micro-sheep/efinance) 包
 
 2. 安装 `akshare-proxy-patch` 插件
 
@@ -35,7 +35,9 @@ akshare_proxy_patch.install_patch(
 )
 
 
+# --------------------------
 # 后续你的正常业务代码保持不变
+# --------------------------
 
 # 假如你使用 akshare
 import akshare as ak
