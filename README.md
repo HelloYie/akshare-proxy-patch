@@ -99,10 +99,10 @@ if __name__ == '__main__':
 
 然后执行 `python akt.py` 即可启动并正常使用 `aktools`。
 
-## 我是没使用 akshare 或 efinance，能集成插件吗？
+## 我没使用 akshare 或 efinance，能集成插件吗？
 
-- 如果使用 python 语言的 `requests` 请求东财接口，插件能自动 hook 住请求，正常工作。
-- 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=&version=0.2.13) 自行实现。
+- 如果使用 python 语言的 `requests` 库请求东财接口，插件能自动 hook 住请求，正常工作。
+- 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=&version=0.2.13) 自行实现封控解除。
 
 ## 使用问题交流群
 
