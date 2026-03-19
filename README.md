@@ -62,7 +62,7 @@ ef.stock.get_realtime_quotes()
 
 ## 如何在 aktools 内集成插件？
 
-需要新建一个 `akt.py` 替换官方的启动方式：
+`aktools` 想要集成插件，需要新建一个 `akt.py` 替换官方的 `python -m aktools` 启动命令，下面是 `akt.py` 内容：
 
 ```
 # 添加插件
@@ -97,11 +97,11 @@ if __name__ == '__main__':
     )
 ```
 
-然后执行 `python akt.py` 即可启动并正常使用 `aktools`。
+然后执行 `python akt.py` 即可启动一个 `http://127.0.0.1:8080/` 服务。只是启动方式不同而已，使用请参考 [aktools 官方文档](https://github.com/akfamily/aktools)。
 
 ## 我没使用 akshare 或 efinance，能集成插件吗？
 
-- 如果使用 python 语言的 `requests` 库请求东财接口，插件能自动 hook 住请求，正常工作。
+- 如果使用 Python 语言的 `requests` 库请求东财接口，插件能自动 hook 住请求，正常工作。
 - 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=&version=0.2.13) 自行实现封控解除。
 
 ## 使用问题交流群
