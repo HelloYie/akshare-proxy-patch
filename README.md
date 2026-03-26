@@ -1,8 +1,8 @@
 # AkShare Proxy Patch
 
-针对 `akshare` 和 `efinance` 的🐒插件补丁，自动为接口注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等东财接口报错问题。
+> 针对 [AKShare](https://github.com/akfamily/akshare) 和 [efinance](https://github.com/Micro-sheep/efinance) 的🐒插件补丁，自动为函数注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等东财接口报错问题。
 
-## 安装
+## 📦 安装
 
 1. 安装并升级官方 [akshare](https://github.com/akfamily/akshare) 或 [efinance](https://github.com/Micro-sheep/efinance) 包
 
@@ -12,9 +12,9 @@
 pip install akshare-proxy-patch==0.2.13
 ```
 
-## 使用方法
+## 🚀 使用方法
 
-`akshare` 和 `efinance` 使用方式一致，在文件顶部添加如下代码即可，无需其他额外操作。
+`akshare` 和 `efinance` 使用方式一致，**在 Python 文件顶部添加如下代码即可**，无需其他额外操作。
 
 ```
 # python 文件顶部添加如下代码
@@ -48,7 +48,7 @@ import efinance as ef
 ef.stock.get_realtime_quotes()
 ```
 
-## install_patch 参数说明
+## 📖 install_patch 参数说明
 
 - 参数1：网关
   - 默认为 `101.201.173.125` 不可修改
@@ -57,10 +57,10 @@ ef.stock.get_realtime_quotes()
 - 参数3：重试次数
   - 默认为30，建议保持不变
 - 参数4：封控的域名列表
-  - 可点击 `ak` 或 `ef` 函数查看接口源码对应的域名，根据封控情况调整域名可以降低积分消耗。
+  - 可点击 `ak` 或 `ef` 函数查看接口源码对应的 `URL`，根据封控情况细化域名可以降低积分消耗。
   - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains` 设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]` 即可。
 
-## 如何在 aktools 内集成插件？
+## 🛠️ 如何在 aktools 内集成插件？
 
 `aktools` 想要集成插件，需要新建一个 `akt.py` 替换官方的 `python -m aktools` 启动命令，下面是 `akt.py` 内容：
 
@@ -99,12 +99,12 @@ if __name__ == '__main__':
 
 然后执行 `python akt.py` 即可启动一个 `http://127.0.0.1:8080/` 服务。只是启动方式不同而已，使用请参考 [aktools 官方文档](https://github.com/akfamily/aktools)。
 
-## 我没使用 akshare 或 efinance，能集成插件吗？
+## ❓ 我没使用 akshare 或 efinance，能集成插件吗？
 
 - 如果使用 Python 语言的 `requests` 库请求东财接口，插件能自动 hook 住请求，正常工作。
 - 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=&version=0.2.13) 自行实现封控解除。
 
-## 使用问题交流群
+## 💬 使用问题交流群
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
