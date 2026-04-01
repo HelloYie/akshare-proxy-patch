@@ -14,7 +14,9 @@ pip install akshare-proxy-patch==0.2.13
 
 ## 🚀 使用方法
 
-`akshare` 和 `efinance` 使用方式一致，**在 Python 文件顶部添加如下代码即可**，无需其他额外操作。
+1. 前往 [AKShare插件官网](https://ak.cheapproxy.net/dashboard/akshare) 获取 `TOKEN`。
+
+2. `akshare` 和 `efinance` 使用方式一致，在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
 
 ```
 # python 文件顶部添加如下代码
@@ -22,10 +24,9 @@ import akshare_proxy_patch
 
 akshare_proxy_patch.install_patch(
     "101.201.173.125",
-    # 免费版为空，付费版填入具体TOKEN
-    auth_token="",
+    auth_token="你的TOKEN",
     retry=30,
-    # 封控的域名列表，可动态调整
+    # 封控的域名列表，可自行调整
     hook_domains=[
       "fund.eastmoney.com",
       "push2.eastmoney.com",
@@ -53,12 +54,13 @@ ef.stock.get_realtime_quotes()
 - 参数1：网关
   - 默认为 `101.201.173.125` 不可修改
 - 参数2：TOKEN
-  - 默认为空，每天可免费使用一定次数。如有更多需求，可[点击此处注册](https://ak.cheapproxy.net/dashboard/akshare)申请正式的 `TOKEN`。
+  - 授权凭证
 - 参数3：重试次数
   - 默认为30，建议保持不变
 - 参数4：封控的域名列表
-  - 可点击 `ak` 或 `ef` 函数查看接口源码对应的 `URL`，根据封控情况细化域名可以降低积分消耗。
-  - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains` 设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]` 即可。
+  - 接口 `URL` 包含数组中的其中一条，就会走插件。
+  - 可点击 `ak` 或 `ef` 函数查看接口源码对应的 `URL`，根据封控情况细化可以降低积分消耗。
+  - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains` 可设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]`。
 
 ## 🛠️ 如何在 aktools 内集成插件？
 
@@ -70,10 +72,9 @@ import akshare_proxy_patch
 
 akshare_proxy_patch.install_patch(
     "101.201.173.125",
-    # 免费版为空，付费版填入具体TOKEN
-    auth_token="",
+    auth_token="你的TOKEN",
     retry=30,
-    # 封控的域名列表，可动态调整
+    # 封控的域名列表，可自行调整
     hook_domains=[
       "fund.eastmoney.com",
       "push2.eastmoney.com",
@@ -108,4 +109,4 @@ if __name__ == '__main__':
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
-![aiWL8f4qi8yNMPsv5YXVbZEOFykMHFIT.webp](https://cdn.nodeimage.com/i/aiWL8f4qi8yNMPsv5YXVbZEOFykMHFIT.webp)
+![tOBQjm8kPjQjTHQf3fAdnhEANpgLwLBl.webp](https://cdn.nodeimage.com/i/tOBQjm8kPjQjTHQf3fAdnhEANpgLwLBl.webp)
