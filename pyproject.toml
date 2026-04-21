@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "akshare-proxy-patch"  # 包名，需在 PyPI 唯一
-version = "0.2.13"
+version = "0.3.0"
 authors = [
   { name="cheapproxy", email="emezxyj1@gmail.com" },
 ]
@@ -13,6 +13,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
     "requests",
+    "curl_cffi",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",

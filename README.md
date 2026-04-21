@@ -1,6 +1,12 @@
 # AkShare Proxy Patch
 
-> 针对 [AKShare](https://github.com/akfamily/akshare) 和 [efinance](https://github.com/Micro-sheep/efinance) 的🐒插件补丁，自动为函数注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等东财接口报错问题。
+> 针对 [AKShare](https://github.com/akfamily/akshare)、[efinance](https://github.com/Micro-sheep/efinance)、[yfinance](https://github.com/ranaroussi/yfinance) 的🐒插件补丁，自动为函数注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等东财接口报错问题和 Yahoo `YFRateLimitError` 问题。
+
+## ✨ 特性
+
+- `AKShare` 东财接口报错问题
+- `efinance` 东财接口报错问题
+- `yfinance` Yahoo接口报错问题
 
 ## 📦 安装
 
@@ -9,14 +15,14 @@
 2. 安装 `akshare-proxy-patch` 插件
 
 ```
-pip install akshare-proxy-patch==0.2.13
+pip install akshare-proxy-patch==0.3.0
 ```
 
-## 🚀 使用方法
+## 🚀 使用方法（akshare / efinance / yfinance）
 
-1. 前往 [AKShare插件官网](https://ak.cheapproxy.net/dashboard/akshare) 获取 `TOKEN`。
+1. [点击前往插件官网](https://ak.cheapproxy.net/dashboard/akshare) 获取 `TOKEN`。
 
-2. `akshare` 和 `efinance` 使用方式一致，在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
+2. `akshare` 和 `efinance` 集成：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
 
 ```
 # python 文件顶部添加如下代码
@@ -35,7 +41,6 @@ akshare_proxy_patch.install_patch(
     ],
 )
 
-
 # --------------------------
 # 后续你的正常业务代码保持不变
 # --------------------------
@@ -47,6 +52,27 @@ df = ak.stock_zh_a_spot_em()
 # 假如你使用 efinance
 import efinance as ef
 ef.stock.get_realtime_quotes()
+```
+
+3. `yfinance` 集成：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
+
+```
+# python 文件顶部添加如下代码
+import akshare_proxy_patch
+
+akshare_proxy_patch.install_yfinance_patch(
+    "101.201.173.125",
+    auth_token="你的TOKEN",
+    retry=30,
+)
+
+# --------------------------
+# 后续你的正常业务代码保持不变
+# --------------------------
+
+import yfinance as yf
+
+data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 ```
 
 ## 📖 install_patch 参数说明

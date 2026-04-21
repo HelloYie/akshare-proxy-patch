@@ -1,11 +1,8 @@
 import time
 import threading
-import requests
-from urllib.parse import urlparse
-from .yfinance import install_yfinance_patch_main
+from curl_cffi import requests
 
 __version__ = "0.3.0"
-# 备份 Session 的原始 request 方法
 _original_request = requests.Session.request
 _auth_session = requests.Session()
 
@@ -15,7 +12,7 @@ class AuthCache:
         self.data = None
         self.expire_at = 0
         self.lock = threading.Lock()
-        self.ttl = 28
+        self.ttl = 30
 
 
 _cache = AuthCache()
@@ -39,7 +36,7 @@ def get_auth_config_with_cache(auth_url, auth_token):
                 timeout=(1.5, 3),
             )
             data = resp.json()
-            if data.get("ua"):
+            if data.get("proxy"):
                 _cache.data = data
                 _cache.expire_at = now + _cache.ttl
                 return data
@@ -50,28 +47,15 @@ def get_auth_config_with_cache(auth_url, auth_token):
         return _cache.data
 
 
-# 如果访问的 URL 包含以下域名，走代理
-default_hook_domains = [
-    "fund.eastmoney.com",
-    "push2.eastmoney.com",
-    "push2his.eastmoney.com",
-    "emweb.securities.eastmoney.com",
-]
-
-default_yfinance_hook_domains = ["finance.yahoo.com"]
-
-
-def install_patch(auth_ip, auth_token="", retry=30, hook_domains=default_hook_domains):
+def install_yfinance_patch_main(auth_ip, auth_token="", retry=30, hook_domains=[]):
     def patched_request(self, method, url, **kwargs):
         # 排除非目标域名
         is_target = any(d in (url or "") for d in hook_domains)
-        is_js = urlparse(url or "").path.lower().endswith(".js")
-        is_html = urlparse(url or "").path.lower().endswith(".html")
 
-        if not is_target or is_js or is_html:
+        if not is_target:
             return _original_request(self, method, url, **kwargs)
 
-        auth_url = f"http://{auth_ip}:47001/api/akshare-auth"
+        auth_url = f"http://{auth_ip}:47001/api/yfinance-auth"
 
         # 重试逻辑
         for _ in range(retry):
@@ -80,13 +64,6 @@ def install_patch(auth_ip, auth_token="", retry=30, hook_domains=default_hook_do
                 time.sleep(0.05)
                 continue
 
-            # 处理 Headers：确保不破坏业务代码传入的 headers
-            headers = kwargs.get("headers") or {}
-            headers["User-Agent"] = auth_res["ua"]
-            headers["Cookie"] = (
-                f"nid18={auth_res['nid18']}; nid18_create_time={auth_res['nid18_create_time']}"
-            )
-            kwargs["headers"] = headers
             kwargs["proxies"] = {
                 "http": auth_res["proxy"],
                 "https": auth_res["proxy"],
@@ -113,13 +90,6 @@ def install_patch(auth_ip, auth_token="", retry=30, hook_domains=default_hook_do
                 with _cache.lock:
                     _cache.expire_at = 0
                 time.sleep(0.05)
-
         return _original_request(self, method, url, **kwargs)
 
     requests.Session.request = patched_request
-
-
-def install_yfinance_patch(
-    auth_ip, auth_token="", retry=30, hook_domains=default_yfinance_hook_domains
-):
-    install_yfinance_patch_main(auth_ip, auth_token, retry, hook_domains)
