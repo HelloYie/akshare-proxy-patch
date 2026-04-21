@@ -4,9 +4,9 @@
 
 ## ✨ 特性
 
-- `AKShare` 东财接口报错问题
-- `efinance` 东财接口报错问题
-- `yfinance` Yahoo接口报错问题
+- 解决 `akshare` 东财接口报错问题
+- 解决 `efinance` 东财接口报错问题
+- 解决 `yfinance` Yahoo接口报错问题
 
 ## 📦 安装
 
@@ -22,7 +22,7 @@ pip install akshare-proxy-patch==0.3.0
 
 1. [点击前往插件官网](https://ak.cheapproxy.net/dashboard/akshare) 获取 `TOKEN`。
 
-2. `akshare` 和 `efinance` 集成：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
+2. `akshare` 或 `efinance` 用户：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
 
 ```
 # python 文件顶部添加如下代码
@@ -54,7 +54,7 @@ import efinance as ef
 ef.stock.get_realtime_quotes()
 ```
 
-3. `yfinance` 集成：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
+3. `yfinance` 用户：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
 
 ```
 # python 文件顶部添加如下代码
