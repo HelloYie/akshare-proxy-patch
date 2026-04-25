@@ -1,11 +1,11 @@
 # AkShare Proxy Patch
 
-> 针对 [akshare](https://github.com/akfamily/akshare)、[efinance](https://github.com/Micro-sheep/efinance)、[yfinance](https://github.com/ranaroussi/yfinance) 的🐒插件补丁，自动为函数注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等东财接口报错问题和 Yahoo `YFRateLimitError` 问题。
+> 针对 [akshare](https://github.com/akfamily/akshare)、[efinance](https://github.com/Micro-sheep/efinance)、[yfinance](https://github.com/ranaroussi/yfinance) 的🐒插件补丁，自动为函数注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等接口报错问题和 Yahoo `YFRateLimitError` 问题。
 
 ## ✨ 特性
 
-- 解决 `akshare` 东财接口报错问题
-- 解决 `efinance` 东财接口报错问题
+- 解决 `akshare` 接口报错问题
+- 解决 `efinance` 接口报错问题
 - 解决 `yfinance` Yahoo接口报错问题
 
 ## 📦 安装
@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
 ## ❓ 我没使用 akshare 或 efinance，能集成插件吗？
 
-- 如果使用 Python 语言的 `requests` 库请求东财接口，插件能自动 hook 住请求，正常工作。
+- 如果使用 Python 语言的 `requests` 库请求接口，插件能自动 hook 住请求，正常工作。
 - 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=&version=0.2.13) 自行实现封控解除。
 
 ## 💬 使用问题交流群
