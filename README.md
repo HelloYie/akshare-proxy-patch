@@ -1,6 +1,6 @@
 # AkShare Proxy Patch
 
-> 针对 [akshare](https://github.com/akfamily/akshare)、[efinance](https://github.com/Micro-sheep/efinance)、[yfinance](https://github.com/ranaroussi/yfinance) 的🐒插件补丁，自动为函数注入请求头，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等接口报错问题和 Yahoo `YFRateLimitError` 问题。
+> 针对 [akshare](https://github.com/akfamily/akshare)、[efinance](https://github.com/Micro-sheep/efinance)、[yfinance](https://github.com/ranaroussi/yfinance) 的🐒插件补丁，解决 `stock_zh_a_spot_em`、`stock_zh_a_hist`、`get_realtime_quotes` 等接口报错问题和 Yahoo `YFRateLimitError` 问题。
 
 ## ✨ 特性
 
