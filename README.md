@@ -22,7 +22,7 @@ pip install akshare-proxy-patch==0.3.0
 
 1. [点击前往插件官网](https://ak.cheapproxy.net/dashboard/akshare) 获取 `TOKEN`。
 
-2. `akshare` 或 `efinance` 用户：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
+2. `akshare` 或 `efinance` 用户：在 **Python 文件顶部**添加如下代码，并替换 `你的TOKEN`。调用非常简单，不需要使用 AI 魔改。
 
 ```
 # python 文件顶部添加如下代码
@@ -54,7 +54,7 @@ import efinance as ef
 ef.stock.get_realtime_quotes()
 ```
 
-3. `yfinance` 用户：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。
+3. `yfinance` 用户：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。调用非常简单，不需要使用 AI 魔改。
 
 ```
 # python 文件顶部添加如下代码
