@@ -172,7 +172,7 @@ if __name__ == '__main__':
 ## ❓ 我没使用 akshare 或 efinance，能集成插件吗？
 
 - 如果使用 Python 语言的 `requests` 库请求接口，插件能自动 hook 住请求，正常工作。
-- 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=&version=0.2.13) 自行实现封控解除。
+- 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=XXX&version=0.4.1) 自行实现封控解除。
 
 ## 💬 使用问题交流群
 
