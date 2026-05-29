@@ -13,7 +13,7 @@ except ImportError:
 
 import requests as std_requests
 
-__version__ = "0.4.1"
+__version__ = "0.4.2"
 
 # 授权接口固定使用标准 requests，避免干扰
 _auth_session = std_requests.Session()
@@ -69,7 +69,12 @@ default_hook_domains = [
 
 
 def install_patch(
-    auth_ip, auth_token="", retry=30, hook_domains=default_hook_domains, timeout=5
+    auth_ip,
+    auth_token="",
+    retry=30,
+    hook_domains=default_hook_domains,
+    timeout=5,
+    cookie="",
 ):
     # --- 核心改进：备份原始 Session 避开递归死循环 ---
     if not hasattr(std_requests, "_OriginalSession"):
@@ -106,7 +111,7 @@ def install_patch(
                     continue
 
                 headers = kwargs.get("headers") or {}
-                headers["User-Agent"] = auth_res["ua"]
+                headers["Cookie"] = cookie or auth_res.get("cookie", "")
                 kwargs["headers"] = headers
                 kwargs["proxies"] = {
                     "http": auth_res["proxy"],
