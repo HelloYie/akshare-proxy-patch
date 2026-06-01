@@ -26,7 +26,7 @@ pip install akshare-proxy-patch==0.4.2
 
 ```
 # python 文件顶部添加如下代码
-# 一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
+# 插件引入和调用一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
 import akshare_proxy_patch
 
 akshare_proxy_patch.install_patch(
@@ -59,7 +59,7 @@ ef.stock.get_realtime_quotes()
 
 ```
 # python 文件顶部添加如下代码
-# 一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
+# 插件引入和调用一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
 import akshare_proxy_patch
 
 akshare_proxy_patch.install_yfinance_patch(
