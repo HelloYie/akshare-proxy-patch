@@ -77,6 +77,8 @@ import yfinance as yf
 data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 ```
 
+4. WARNING: 强烈建议尽量用 `efinance` 替代 `akshare` 来获取数据，效率更高，更省积分。
+
 ## install_patch 参数说明
 
 - 参数1：网关
@@ -151,4 +153,4 @@ except Exception as e:
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
-![dGUX0ljqGMiiCqwWF05T8ZID0VP0mV6Y.webp](https://cdn.nodeimage.com/i/dGUX0ljqGMiiCqwWF05T8ZID0VP0mV6Y.webp)
+![HExHHHovkcq1Kt9TEEzc8OKtFV2O1BBp.webp](https://cdn.nodeimage.com/i/HExHHHovkcq1Kt9TEEzc8OKtFV2O1BBp.webp)
