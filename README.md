@@ -93,8 +93,8 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
   - 接口 `URL` 包含数组中的其中一条，就会走插件。
   - 可点击 `ak` 或 `ef` 函数查看接口源码对应的 `URL`，根据封控情况细化可以降低积分消耗。
   - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains` 可设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]`。
-- 参数5：是否启用快速模式，加速列表如下：
-  - 所有包含 `fetch_paginated_data` 函数的接口，如 `stock_zh_a_spot_em`
+- 参数5：是否启用多线程加速，加速列表如下：
+  - 所有用到 `fetch_paginated_data` 分页函数的接口，如 `stock_zh_a_spot_em`
   - `stock_individual_fund_flow_rank`
   - `stock_sector_fund_flow_rank`
   - `fund_money_fund_info_em`
@@ -103,6 +103,7 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
   - `fund_fh_em`
   - `fund_cf_em`
   - `fund_fh_rank_em`
+  - 如有其他加速需求欢迎反馈
 
 ## 如何在 aktools 内集成插件？
 
