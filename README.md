@@ -23,7 +23,7 @@ pip install akshare-proxy-patch==0.5.0
 
 1. [点击前往插件官网](https://ak.cheapproxy.net/dashboard/akshare) 获取 `TOKEN`。
 
-2. `akshare` 或 `efinance` 用户：在 **Python 文件最顶部**添加如下代码，并替换 `你的TOKEN`。调用非常简单，不需要使用 AI 魔改。
+2. `akshare` 或 `efinance` 用户：在 **Python 文件最顶部**添加如下代码，并替换 `你的TOKEN`，不需要使用 AI 魔改。
 
 ```
 # python 文件顶部添加如下代码
@@ -57,7 +57,7 @@ import efinance as ef
 ef.stock.get_realtime_quotes()
 ```
 
-3. `yfinance` 用户：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`。调用非常简单，不需要使用 AI 魔改。
+3. `yfinance` 用户：在 Python 文件顶部添加如下代码，并替换 `你的TOKEN`，不需要使用 AI 魔改。
 
 ```
 # python 文件顶部添加如下代码
@@ -79,7 +79,7 @@ import yfinance as yf
 data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 ```
 
-4. [尽量用 `efinance` 替代 `akshare` 的部分函数获取数据，效率更高，更省积分](https://github.com/Micro-sheep/efinance)
+4. 尽量用 [efinance](https://github.com/Micro-sheep/efinance) 替代 akshare 的部分函数配合插件获取数据，效率更高，更省积分。
 
 ## install_patch 参数说明
 
@@ -132,4 +132,4 @@ akshare_proxy_patch.uninstall_patch()
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
-![HExHHHovkcq1Kt9TEEzc8OKtFV2O1BBp.webp](https://cdn.nodeimage.com/i/HExHHHovkcq1Kt9TEEzc8OKtFV2O1BBp.webp)
+![AvSEuz0JyKKv7f3snJrszkKDhTLAt0jG.webp](https://cdn.nodeimage.com/i/AvSEuz0JyKKv7f3snJrszkKDhTLAt0jG.webp)
