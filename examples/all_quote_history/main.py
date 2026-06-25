@@ -54,7 +54,7 @@ def install_proxy_patch():
 
     akshare_proxy_patch.install_patch(
         "101.201.173.125",
-        auth_token="你的TOKEN",
+        auth_token="20260421HPSMCANB",
         retry=30,
         hook_domains=[
             "fund.eastmoney.com",
