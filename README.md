@@ -133,4 +133,4 @@ akshare_proxy_patch.uninstall_patch()
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
-![WAQE69lQ1DAlngvUI7py9jJkTZHQz9MY.webp](https://cdn.nodeimage.com/i/WAQE69lQ1DAlngvUI7py9jJkTZHQz9MY.webp)
+![YdYoeKx0y41QJNuHPQhdBxC4WZMXhPcF.webp](https://cdn.nodeimage.com/i/YdYoeKx0y41QJNuHPQhdBxC4WZMXhPcF.webp)
