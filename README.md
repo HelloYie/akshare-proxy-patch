@@ -84,17 +84,18 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 
 ## install_patch 参数说明
 
-- 参数1：网关
-  - 默认为 `101.201.173.125` 不可修改
-- 参数2：TOKEN
-  - 授权凭证
-- 参数3：重试次数
-  - 默认为30，建议保持不变
-- 参数4：封控的域名列表
-  - 接口 `URL` 包含数组中的其中一条，就会走插件。
-  - 可点击 `ak` 或 `ef` 函数查看接口源码对应的 `URL`，根据封控情况细化可以降低积分消耗。
-  - 如只封控 `stock_zh_a_spot_em` 这个接口，`hook_domains` 可设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]`。
-- 参数5：是否启用多线程加速，加速函数列表如下：
+- `ip`
+  - 网关，不可修改
+- `auth_token`
+  - TOKEN 授权凭证
+- `retry`
+  - 重试次数，默认为30，建议保持不变
+- `hook_domains`
+  - 封控的域名列表，插件会 hook 住这些域名的请求，解除封控。插件已默认涵盖了一些常见函数的域名。
+  - 可点击 `akshare` 或 `efinance` 函数查看接口源码对应的 `URL`，根据封控情况细化可以降低积分消耗。
+  - 如只用到 `stock_zh_a_spot_em` 这个接口，`hook_domains` 可设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]`。
+- `fast`
+  - 是否启用 `akshare` 多线程加速，默认开启，加速函数列表如下
   - 所有用到 `fetch_paginated_data` 分页函数的接口，如 `stock_zh_a_spot_em`、`stock_sh_a_spot_em`、`stock_board_industry_cons_em` 等
   - `stock_individual_fund_flow_rank`
   - `stock_sector_fund_flow_rank`
