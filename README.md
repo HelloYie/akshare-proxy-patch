@@ -112,6 +112,35 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 - `aktools` 想要集成插件，需下载 [akt.py](https://github.com/HelloYie/akshare-proxy-patch/blob/master/examples/aktools/akt.py) 文件，并填入您的 `TOKEN`。
 - 然后执行 `python akt.py` 即可启动一个 `http://127.0.0.1:8080/` 服务。只是启动方式不同而已，使用请参考 [aktools 官方文档](https://github.com/akfamily/aktools)。
 
+## 如何在 daily_stock_analysis 内集成插件？
+
+- 在 [daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) 项目中，找到入口 Python 文件 `main.py`，在文件顶部引入插件：
+
+```
+# 找到 daily_stock_analysis main.py 的第这行（第一行）代码，在其下方引入插件
+from __future__ import annotations
+
+# 引入插件
+import akshare_proxy_patch
+
+akshare_proxy_patch.install_patch(
+    "101.201.173.125",
+    auth_token="你的TOKEN",
+    retry=30,
+    # 封控的域名列表，可自行调整
+    hook_domains=[
+      "fund.eastmoney.com",
+      "push2.eastmoney.com",
+      "push2his.eastmoney.com",
+      "emweb.securities.eastmoney.com",
+      "searchapi.eastmoney.com/api/suggest/get"
+    ],
+    fast=True
+)
+# daily_stock_analysis main.py 的其他后续代码
+
+```
+
 ## 股票数量很多，如何快速拉取数据？
 
 - 尽量使用 `efinance` 替代 `akshare` 来获取数据， `efinance` 内置多线程，效率更高，更省积分。
