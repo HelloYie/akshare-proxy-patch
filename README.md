@@ -118,7 +118,7 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 - 在 [daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) 项目中，找到入口 Python 文件 `main.py`，在文件顶部引入插件：
 
 ```
-# 找到 daily_stock_analysis main.py 的第这行（第一行）代码，在其下方引入插件
+# 找到 daily_stock_analysis main.py 的这行（第一行）代码，在其下方引入插件
 from __future__ import annotations
 
 # 引入插件
@@ -139,7 +139,7 @@ akshare_proxy_patch.install_patch(
     fast=True
 )
 # daily_stock_analysis main.py 的其他后续代码
-# 引入成功后正常启动该项目即可
+# 插件引入成功后正常启动该项目即可
 
 ```
 
