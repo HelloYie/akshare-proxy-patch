@@ -114,6 +114,7 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 
 ## 如何在 daily_stock_analysis 内集成插件？
 
+- [daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) 本身集成了 `akshare`、`efinance` 等数据源，如遇数据源报错，可以通过引入插件来解决。
 - 在 [daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) 项目中，找到入口 Python 文件 `main.py`，在文件顶部引入插件：
 
 ```
@@ -138,6 +139,7 @@ akshare_proxy_patch.install_patch(
     fast=True
 )
 # daily_stock_analysis main.py 的其他后续代码
+# 引入成功后正常启动该项目即可
 
 ```
 
