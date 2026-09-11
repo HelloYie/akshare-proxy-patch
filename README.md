@@ -4,9 +4,10 @@
 
 ## ✨ 特性
 
-- 解决 `akshare` 的 `stock_zh_a_spot_em`、`stock_zh_a_hist` 接口报错问题
+- 解决 `akshare` 或 `aktools` 的 `stock_zh_a_spot_em`、`stock_zh_a_hist` 接口报错问题
 - 解决 `efinance` 的 `get_realtime_quotes` 等接口报错问题
 - 解决 `yfinance` Yahoo接口国内无法使用问题
+- 解决 `daily_stock_analysis` 的数据获取报错问题
 - 多线程加速 `stock_zh_a_spot_em`、`stock_individual_fund_flow_rank` 等 `akshare` 接口
 
 ## 📦 安装
