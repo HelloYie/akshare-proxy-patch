@@ -13,7 +13,8 @@ akshare_proxy_patch.install_patch(
         "push2.eastmoney.com",
         "push2his.eastmoney.com",
         "emweb.securities.eastmoney.com",
-        "searchapi.eastmoney.com/api/suggest/get"
+        "searchapi.eastmoney.com/api/suggest/get",
+        "push2delay.eastmoney.com/api/qt/clist/get"
     ],
 )
 
