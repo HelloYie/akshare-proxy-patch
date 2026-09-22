@@ -95,8 +95,8 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 - `retry`
   - 重试次数，默认为30，建议保持不变
 - `hook_domains`
-  - 封控的域名列表，插件会 hook 住这些域名的请求，解除封控。插件已默认涵盖了一些常见函数的域名。
-  - 可点击 `akshare` 或 `efinance` 函数查看接口源码对应的 `URL`，根据封控情况细化可以降低积分消耗。
+  - 封控的域名列表，插件会 hook 住这些域名的请求，解除封控。已默认涵盖常见函数的域名。
+  - 可点击 `akshare` 或 `efinance` 函数查看接口源码对应的 `URL` 并添加到该列表。
   - 如只用到 `stock_zh_a_spot_em` 这个接口，`hook_domains` 可设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]`。
 - `fast`
   - 是否启用 `akshare` 多线程加速，默认开启，加速函数列表如下
