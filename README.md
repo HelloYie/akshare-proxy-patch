@@ -24,11 +24,12 @@ pip install akshare-proxy-patch==0.5.0
 
 1. [点击前往插件官网](https://ak.cheapproxy.net/dashboard/akshare) 获取 `TOKEN`。
 
-2. `akshare` 或 `efinance` 用户：在 **Python 文件最顶部**添加如下代码，并替换 `你的TOKEN`，不需要使用 AI 魔改。
+2. `akshare` 或 `efinance` 用户：在 **Python 文件最顶部** 添加如下代码，并替换 `你的TOKEN`。
 
 ```
 # python 文件顶部添加如下代码
-# 插件引入和调用一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
+# 重要：插件引入和调用一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
+
 import akshare_proxy_patch
 
 akshare_proxy_patch.install_patch(
@@ -48,7 +49,7 @@ akshare_proxy_patch.install_patch(
 )
 
 # --------------------------
-# 后续你的正常业务代码保持不变
+# 后续你的业务代码保持不变
 # --------------------------
 
 # 假如你使用 akshare
@@ -64,7 +65,8 @@ ef.stock.get_realtime_quotes()
 
 ```
 # python 文件顶部添加如下代码
-# 插件引入和调用一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
+# 重要：插件引入和调用一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
+
 import akshare_proxy_patch
 
 akshare_proxy_patch.install_yfinance_patch(
@@ -74,7 +76,7 @@ akshare_proxy_patch.install_yfinance_patch(
 )
 
 # --------------------------
-# 后续你的正常业务代码保持不变
+# 后续你的业务代码保持不变
 # --------------------------
 
 import yfinance as yf
@@ -168,4 +170,4 @@ akshare_proxy_patch.uninstall_patch()
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
-![EhnrtgYBdLpQB5HqTNugt8hzJhFdfgYx.webp](https://cdn.nodeimage.com/i/EhnrtgYBdLpQB5HqTNugt8hzJhFdfgYx.webp)
+![2gnHmTY3MwNELfHaWVGrcRJoQKizRiWY.webp](https://cdn.nodeimage.com/i/2gnHmTY3MwNELfHaWVGrcRJoQKizRiWY.webp)
