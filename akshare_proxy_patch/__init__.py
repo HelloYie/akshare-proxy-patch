@@ -4,21 +4,6 @@ import time
 import random
 import threading
 
-from .akshare_src.func import fetch_paginated_data as _patched_fetch_paginated_data
-from .akshare_src.stock.stock_fund_em import (
-    stock_individual_fund_flow_rank as _patched_stock_individual_fund_flow_rank,
-    stock_sector_fund_flow_rank as _patched_stock_sector_fund_flow_rank,
-)
-from .akshare_src.fund.fund_em import (
-    fund_money_fund_info_em as _patched_fund_money_fund_info_em,
-    fund_graded_fund_info_em as _patched_fund_graded_fund_info_em,
-    fund_etf_fund_info_em as _patched_fund_etf_fund_info_em,
-)
-from .akshare_src.fund.fund_fhsp_em import (
-    fund_fh_em as _patched_fund_fh_em,
-    fund_cf_em as _patched_fund_cf_em,
-    fund_fh_rank_em as _patched_fund_fh_rank_em,
-)
 
 # 1. 导入必要的库
 try:
@@ -30,7 +15,7 @@ except ImportError:
 
 import requests as std_requests
 
-__version__ = "0.5.0"
+__version__ = "0.5.1"
 
 # 授权接口固定使用标准 requests，避免干扰
 _auth_session = std_requests.Session()
@@ -190,6 +175,11 @@ def install_fast_patch():
     """
     try:
         akshare = importlib.import_module("akshare")
+        try:
+            from .akshare_src.func_new import fetch_paginated_data as _patched_fetch_paginated_data
+        except:
+            from .akshare_src.func import fetch_paginated_data as _patched_fetch_paginated_data
+
         # 覆盖已加载的 akshare 模块的 fetch_paginated_data
         for name, mod in list(sys.modules.items()):
             if mod and name.startswith("akshare"):
@@ -198,74 +188,6 @@ def install_fast_patch():
                         mod, "fetch_paginated_data"
                     )
                     setattr(mod, "fetch_paginated_data", _patched_fetch_paginated_data)
-
-        origin_backup[("akshare", "stock_individual_fund_flow_rank")] = getattr(
-            akshare, "stock_individual_fund_flow_rank"
-        )
-        setattr(
-            akshare,
-            "stock_individual_fund_flow_rank",
-            _patched_stock_individual_fund_flow_rank,
-        )
-
-        origin_backup[("akshare", "stock_sector_fund_flow_rank")] = getattr(
-            akshare, "stock_sector_fund_flow_rank"
-        )
-        setattr(
-            akshare,
-            "stock_sector_fund_flow_rank",
-            _patched_stock_sector_fund_flow_rank,
-        )
-
-        origin_backup[("akshare", "fund_money_fund_info_em")] = getattr(
-            akshare, "fund_money_fund_info_em"
-        )
-        setattr(
-            akshare,
-            "fund_money_fund_info_em",
-            _patched_fund_money_fund_info_em,
-        )
-
-        origin_backup[("akshare", "fund_graded_fund_info_em")] = getattr(
-            akshare, "fund_graded_fund_info_em"
-        )
-        setattr(
-            akshare,
-            "fund_graded_fund_info_em",
-            _patched_fund_graded_fund_info_em,
-        )
-
-        origin_backup[("akshare", "fund_etf_fund_info_em")] = getattr(
-            akshare, "fund_etf_fund_info_em"
-        )
-        setattr(
-            akshare,
-            "fund_etf_fund_info_em",
-            _patched_fund_etf_fund_info_em,
-        )
-
-        origin_backup[("akshare", "fund_fh_em")] = getattr(akshare, "fund_fh_em")
-        setattr(
-            akshare,
-            "fund_fh_em",
-            _patched_fund_fh_em,
-        )
-
-        origin_backup[("akshare", "fund_cf_em")] = getattr(akshare, "fund_cf_em")
-        setattr(
-            akshare,
-            "fund_cf_em",
-            _patched_fund_cf_em,
-        )
-
-        origin_backup[("akshare", "fund_fh_rank_em")] = getattr(
-            akshare, "fund_fh_rank_em"
-        )
-        setattr(
-            akshare,
-            "fund_fh_rank_em",
-            _patched_fund_fh_rank_em,
-        )
     except Exception as e:
         print("启动快速模式失败：", e)
 

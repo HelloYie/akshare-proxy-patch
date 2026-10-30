@@ -8,7 +8,7 @@
 - 解决 `efinance` 的 `get_realtime_quotes` 等接口报错问题
 - 解决 `yfinance` Yahoo接口国内无法使用问题
 - 解决 `daily_stock_analysis` 的数据获取报错问题
-- 多线程加速 `stock_zh_a_spot_em`、`stock_individual_fund_flow_rank` 等 `akshare` 接口
+- 多线程加速 `stock_zh_a_spot_em` 等 `akshare` 接口
 
 ## 📦 安装
 
@@ -17,7 +17,7 @@
 2. 安装 `akshare-proxy-patch` 插件
 
 ```
-pip install akshare-proxy-patch==0.5.0
+pip install akshare-proxy-patch==0.5.1
 ```
 
 ## 🚀 使用方法（akshare / efinance / yfinance）
@@ -101,15 +101,6 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
 - `fast`
   - 是否启用 `akshare` 多线程加速，默认开启，加速函数列表如下
   - 所有用到 `fetch_paginated_data` 分页函数的接口，如 `stock_zh_a_spot_em`、`stock_sh_a_spot_em`、`stock_board_industry_cons_em` 等
-  - `stock_individual_fund_flow_rank`
-  - `stock_sector_fund_flow_rank`
-  - `fund_money_fund_info_em`
-  - `fund_graded_fund_info_em`
-  - `fund_etf_fund_info_em`
-  - `fund_fh_em`
-  - `fund_cf_em`
-  - `fund_fh_rank_em`
-  - 如有其他函数加速需求欢迎反馈
 
 ## 如何在 aktools 内集成插件？
 
@@ -164,7 +155,7 @@ akshare_proxy_patch.uninstall_patch()
 ## 我没使用 akshare 或 efinance，能集成插件吗？
 
 - 如果使用 Python 语言的 `requests` 库请求接口，插件能自动 hook 住请求，正常工作。
-- 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=XXX&version=0.5.0) 自行实现封控解除。
+- 如果您使用其他语言或 python 的其他库，可 [手动提取代理](http://101.201.173.125:47001/api/akshare-auth?token=XXX&version=0.5.1) 自行实现封控解除。
 
 ## 使用问题交流群
 
