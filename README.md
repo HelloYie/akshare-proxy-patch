@@ -100,7 +100,7 @@ data = yf.download("AAPL", start="2017-01-01", end="2017-04-30")
   - 如只用到 `stock_zh_a_spot_em` 这个接口，`hook_domains` 可设置为 `["https://82.push2.eastmoney.com/api/qt/clist/get"]`。
 - `fast`
   - 是否启用 `akshare` 多线程加速，默认开启，加速函数列表如下
-  - 所有用到 `fetch_paginated_data` 分页函数的接口，如 `stock_zh_a_spot_em`、`stock_sh_a_spot_em`、`stock_board_industry_cons_em` 等
+  - 所有用到 `fetch_paginated_data` 分页函数的接口，如 `stock_zh_a_spot_em`、`stock_sh_a_spot_em`、`stock_board_industry_cons_em` 等。（插件 `0.5.1` 版本后只加速涉及 `fetch_paginated_data` 的函数，如需加速其他分页的函数，请自行用 AI 修改 akshare 源码。)
 
 ## 如何在 aktools 内集成插件？
 
@@ -161,4 +161,4 @@ akshare_proxy_patch.uninstall_patch()
 
 如使用时遇到问题，或对插件有什么意见或建议，可进群交流：
 
-![eozuhg3eH48ntnAnZXjKpmiegT7Ws0cl.webp](https://cdn.nodeimage.com/i/eozuhg3eH48ntnAnZXjKpmiegT7Ws0cl.webp)
+![NvQhEHlr2PISNXvhP0NCpztpCSab9Z1v.webp](https://cdn.nodeimage.com/i/NvQhEHlr2PISNXvhP0NCpztpCSab9Z1v.webp)
