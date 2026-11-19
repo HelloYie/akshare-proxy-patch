@@ -24,11 +24,15 @@ pip install akshare-proxy-patch==0.5.1
 
 1. [点击前往插件官网](https://ak.cheapproxy.net/dashboard/akshare) 获取 `TOKEN`。
 
-2. `akshare` 或 `efinance` 用户：在 **Python 文件最顶部** 添加如下代码，并替换 `你的TOKEN`。
+2. 在 **Python 文件最顶部** 添加如下代码，并替换 `你的TOKEN`。
+
+> [!WARNING]
+> `import akshare_proxy_patch` 和 `install_patch(...)` 必须放在入口文件**最顶部**，
+> 早于任何 akshare / efinance / yfinance 的导入，否则补丁不生效。
 
 ```
 # python 文件顶部添加如下代码
-# 重要：插件引入和调用一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
+# 重要：插件一定要放到最顶部！不能在 akshare 或 efinance 之后引入！
 
 import akshare_proxy_patch
 
